@@ -12,7 +12,7 @@ import numpy as np
 # Model
 model = Sequential()
 
-model.add(Dense(n_nodes=256, n_inputs=784))
+model.add(Dense(n_nodes=264, n_inputs=784))
 model.add(ReLU())
 
 model.add(Dropout())
