@@ -21,7 +21,8 @@ model.add(Dense(n_nodes=10))
 
 model.build()
 
-model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(), metrics=["accuracy"])
+model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(),
+              metrics=["accuracy"])
 
 print(model.summary())
 
@@ -53,8 +54,9 @@ y_validation = y[int(n*0.8):]
 
 del X, y
 
-model.fit(train_data=(X_train, y_train), test_data=(X_validation, y_validation), epochs=10, batch_size=32)
+model.fit(train_data=(X_train, y_train), validation_data=(
+    X_validation, y_validation), epochs=10, batch_size=32)
 
-ev = model.evaluate(X=X_test, y=y_test, batch_size=32)
+ev = model.evaluate(test_data=(X_test, y_test), batch_size=32)
 
 print(ev)
