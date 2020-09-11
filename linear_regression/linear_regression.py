@@ -33,9 +33,9 @@ model.compile(optimizer=Adam(), loss_function=MSELoss())
 model.summary()
 
 # Training the model
-history = model.fit(train_data=(X_train, y_train), test_data=(X_validation, y_validation), epochs=300, batch_size=4)
+history = model.fit(train_data=(X_train, y_train), validation_data=(X_validation, y_validation), epochs=300, batch_size=4)
 
 # Predicting some values
-evaluated = model.evaluate(X=X_test, y=y_test, batch_size=4)
+evaluated = model.evaluate(test_data=(X_test, y_test), batch_size=4)
 
 print(evaluated)
