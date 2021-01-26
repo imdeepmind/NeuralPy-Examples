@@ -1,8 +1,8 @@
 # Importing Dependencies
 
 from neuralpy.models import Sequential
-from neuralpy.layers import Dense
-from neuralpy.activation_functions import ReLU
+from neuralpy.layers.linear import Dense
+from neuralpy.layers.activation_functions import ReLU
 from neuralpy.loss_functions import MSELoss
 from neuralpy.optimizer import Adam
 import numpy as np
