@@ -1,8 +1,8 @@
 # Dependencies
 from neuralpy.models import Sequential
-from neuralpy.layers import Dense
-from neuralpy.regulariziers import Dropout
-from neuralpy.activation_functions import ReLU
+from neuralpy.layers.linear import Dense
+from neuralpy.layers.regularizers import Dropout
+from neuralpy.layers.activation_functions import ReLU
 from neuralpy.loss_functions import CrossEntropyLoss
 from neuralpy.optimizer import Adam
 

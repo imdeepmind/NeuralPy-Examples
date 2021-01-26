@@ -1,6 +1,8 @@
 from neuralpy.models import Sequential
-from neuralpy.layers import Conv2D, Dense, Flatten
-from neuralpy.activation_functions import ReLU,Softmax
+from neuralpy.layers.convolutional import Conv2D
+from neuralpy.layers.linear import Dense
+from neuralpy.layers.other import Flatten
+from neuralpy.layers.activation_functions import ReLU,Softmax
 from neuralpy.loss_functions import CrossEntropyLoss
 from neuralpy.optimizer import SGD
 import torch
