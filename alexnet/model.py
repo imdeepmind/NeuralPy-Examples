@@ -9,7 +9,7 @@ from neuralpy.optimizer import SGD
 
 model = Sequential()
 
-model.add(Conv2D(input_shape=(3,227,227), filters=96, kernel_size=11, stride=4))
+model.add(Conv2D(input_shape=(1,28,28), filters=96, kernel_size=11, stride=4))
 model.add(ReLU())
 model.add(MaxPool2D(kernel_size=3, stride=2))
 model.add(ReLU())
@@ -32,7 +32,7 @@ model.add(Dense(n_nodes=4096))
 model.add(ReLU())
 model.add(Dense(n_nodes=4096))
 model.add(ReLU())
-model.add(Dense(n_nodes=1000))
+model.add(Dense(n_nodes=10))
 # model.add(Softmax()))
 
 model.build()
