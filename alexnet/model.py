@@ -11,6 +11,7 @@ import torch
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 
+# Create a Sequential model Instance
 model = Sequential()
 
 model.add(Conv2D(input_shape=(1,224,224), filters=96, kernel_size=11, stride=4))
@@ -30,34 +31,18 @@ model.add(ReLU())
 model.add(MaxPool2D(kernel_size=3, stride=2))
 model.add(ReLU())
 model.add(Flatten())
-# model.add(Dense(n_nodes=9216))
-# model.add(ReLU())
 model.add(Dense(n_nodes=4096))
 model.add(ReLU())
 model.add(Dense(n_nodes=4096))
 model.add(ReLU())
 model.add(Dense(n_nodes=10))
-# model.add(Softmax()))
+model.add(Softmax())
 
 model.build()
 model.compile(optimizer=Adam(), loss_function=CrossEntropyLoss(), metrics=["accuracy"])
 print(model.summary())
 
-# train_data = datasets.CIFAR100(root="datset/",train=True,download=True, transform=transforms.Compose([transforms.CenterCrop(224),transforms.ToTensor()]))
-# train_loader = torch.utils.data.DataLoader(train_data, batch_size=32)
-
-# test_data = datasets.CIFAR100(root="datset/",train=False,download=True, transform=transforms.Compose([transforms.CenterCrop(224),transforms.ToTensor()]))
-# test_loader = torch.utils.data.DataLoader(test_data, batch_size=32)
-
-# next_data_sample = next(iter(train_loader))
-# print(next_data_sample[0][0].shape, next_data_sample[1][0])
-
-# train_samples_imgs = next_data_sample[0]
-# train_samples_lbs = next_data_sample[1]
-
-# print(train_samples_imgs.shape, train_samples_lbs.shape)
-
-
+# Get the training Data
 train_set = datasets.MNIST(
     root='./data'
     ,train=True
@@ -77,7 +62,5 @@ train_imgs = mnist_data[0][:500]
 train_labels = mnist_data[1][:500]
 test_imgs = mnist_data[0][500:]
 test_labels = mnist_data[1][500:]
-
-
-
+# Train Model
 model.fit(train_data=(train_imgs,train_labels), epochs=5, validation_data=(test_imgs,test_labels),batch_size=1)
